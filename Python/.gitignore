@@ -1,2 +1,2 @@
-    # ignore credentials files,
-    credentials*
+# ignore credentials files
+credentials*
