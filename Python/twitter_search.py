@@ -1,12 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/pyt:hon
 from TwitterSearch import *
 import re
 import serial
 from time import sleep
-from credentials import *
+#from credentials import *
+import credentials
 
 regex = re.compile('[^a-zA-Z]')
-sft = re.compile('#sparkfunthings')
+sft = re.compile('#cathings')
 myPort = serial.Serial('/dev/ttyUSB0', 115200, timeout = 10)
 myPort.write("Hello, world!")
 
@@ -16,16 +17,16 @@ while True:
 	try:
 		print "Searching..."
 		tso = TwitterSearchOrder() # create a TwitterSearchOrder object
-		tso.set_keywords(['#sparkfunthings']) # let's define all words we would like to have a look for
+		tso.set_keywords(['#cathings']) # let's define all words we would like to have a look for
 		tso.set_include_entities(False) # and don't give us all those entity information
+                consumer_key = credentials.login['consumer_key'] 
+                consumer_secret = credentials.login['consumer_secret']
+                access_token = credentials.login['access_token']
+                access_token_secret = credentials.login['access_token_secret'
 
 	    # it's about time to create a TwitterSearch object with our secret tokens
-		ts = TwitterSearch(
-			consumer_key = twitter_consumer_key,
-			consumer_secret = twitter_consumer_secret,
-			access_token = twitter_access_token,
-			access_token_secret = twitter_access_token_secret
-		     )
+		ts = TwitterSearch(consumer_key, consumer_secret, access_token, access_token_secret)
+                print "duh"
 
 	     # this is where the fun actually starts :)
 		for tweet in ts.search_tweets_iterable(tso):
