@@ -3,7 +3,7 @@
 
 #define PIN            2
 
-#define NUMPIXELS      30
+#define NUMPIXELS      4
 
 enum CHAR_LEDS {
   LR = 1, LS, LT, LU, LV, LW, LX, LY, LZ, NAN1, LQ,
@@ -25,7 +25,8 @@ void loop()
 {
   if (Serial.available() > 0)
   {
-    char inchar = Serial.read();
+    //char inchar = Serial.read();
+    char inchar = "asdf"
     switch(inchar)
     {
       case 'a':
